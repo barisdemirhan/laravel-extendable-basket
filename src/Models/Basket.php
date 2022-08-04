@@ -33,10 +33,6 @@ abstract class Basket extends Model implements BasketInterface
 
     public function add(int $quantity, Basketable $basketable, array $meta = [])
     {
-        if ($quantity < 1) {
-            throw new Exception('Quantity is less than one.');
-        }
-
         foreach ($this->items as $item) {
             if (get_class($item->basketable) === get_class($basketable)
                 && $item->basketable->getKey() === $basketable->getKey()
