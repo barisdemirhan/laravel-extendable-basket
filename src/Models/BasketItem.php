@@ -19,7 +19,7 @@ abstract class BasketItem extends Model implements BasketItemInterface
 
     public function setQuantity(int $quantity)
     {
-        if ($quantity > 0) {
+        if ($quantity > 0.00) {
             $this->quantity = $quantity;
             $this->save();
         } else {
