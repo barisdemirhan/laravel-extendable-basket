@@ -34,9 +34,11 @@ abstract class Basket extends Model implements BasketInterface
     public function add(int $quantity, Basketable $basketable, array $meta = [])
     {
         foreach ($this->items as $item) {
-            if (get_class($item->basketable) === get_class($basketable)
+            if (
+                get_class($item->basketable) === get_class($basketable)
                 && $item->basketable->getKey() === $basketable->getKey()
-                && $item->meta === $meta) {
+                && $item->meta === $meta
+            ) {
                 $item->quantity += $quantity;
                 $item->save();
 
@@ -79,8 +81,13 @@ abstract class Basket extends Model implements BasketInterface
         return $totalNumberOfItems;
     }
 
+    public function getTotalItems(): int
+    {
+        return $this->items()->count();
+    }
+
     public function isEmpty(): bool
     {
-        return $this->getTotalNumberOfItems() <= 0;
+        return $this->getTotalItems() <= 0;
     }
 }
