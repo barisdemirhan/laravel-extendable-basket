@@ -12,7 +12,7 @@ interface BasketInterface
 
     public function items(): HasMany;
 
-    public function add(int $quantity, Basketable $basketable, array $meta = []);
+    public function add(float $quantity, Basketable $basketable, array $meta = []);
 
     public function getSubtotal();
 

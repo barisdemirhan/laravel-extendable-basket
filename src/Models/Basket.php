@@ -31,7 +31,7 @@ abstract class Basket extends Model implements BasketInterface
         return static::getCurrent();
     }
 
-    public function add(int $quantity, Basketable $basketable, array $meta = [])
+    public function add(float $quantity, Basketable $basketable, array $meta = [])
     {
         foreach ($this->items as $item) {
             if (
