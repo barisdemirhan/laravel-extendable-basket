@@ -61,7 +61,7 @@ abstract class Basket extends Model implements BasketInterface
 
     public function getSubtotal()
     {
-        $subtotal = 0;
+        $subtotal = 0.00;
 
         foreach ($this->items as $item) {
             $subtotal += $item->getPrice();
@@ -72,7 +72,7 @@ abstract class Basket extends Model implements BasketInterface
 
     public function getTotalNumberOfItems(): int
     {
-        $totalNumberOfItems = 0;
+        $totalNumberOfItems = 0.00;
 
         foreach ($this->items as $item) {
             $totalNumberOfItems += $item->quantity;
