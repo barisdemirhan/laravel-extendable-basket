@@ -81,7 +81,7 @@ abstract class Basket extends Model implements BasketInterface
         return $totalNumberOfItems;
     }
 
-    public function getTotalItems(): int
+    public function getTotalItems(): float
     {
         return $this->items()->count();
     }

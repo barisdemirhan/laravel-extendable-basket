@@ -11,7 +11,7 @@ interface BasketItemInterface
 
     public function basketable(): MorphTo;
 
-    public function setQuantity(int $quantity);
+    public function setQuantity(float $quantity);
 
     public function getPrice();
 }

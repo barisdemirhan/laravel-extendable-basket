@@ -17,6 +17,8 @@ interface BasketInterface
     public function getSubtotal();
 
     public function getTotalNumberOfItems(): int;
+    
+    public function getTotalItems(): float;
 
     public function isEmpty(): bool;
 }

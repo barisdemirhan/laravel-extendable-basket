@@ -17,7 +17,7 @@ abstract class BasketItem extends Model implements BasketItemInterface
         return $this->morphTo();
     }
 
-    public function setQuantity(int $quantity)
+    public function setQuantity(float $quantity)
     {
         if ($quantity > 0.00) {
             $this->quantity = $quantity;
