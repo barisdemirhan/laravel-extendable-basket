@@ -17,7 +17,10 @@ class AddMetaToBasketItemsTable extends Migration
         $dbType = DB::connection()->getPDO()->getAttribute(PDO::ATTR_DRIVER_NAME);
 
         Schema::table('basket_items', function (Blueprint $table) use ($dbType) {
-            $table->float('quantity')->change();
+            $field = $table->text('meta');
+            if ($dbType === 'sqlite') {
+                $field->default('[]');
+            }
         });
     }
 
@@ -28,5 +31,8 @@ class AddMetaToBasketItemsTable extends Migration
      */
     public function down()
     {
+        Schema::table('basket_items', function (Blueprint $table) {
+            $table->dropColumn('meta');
+        });
     }
 }
