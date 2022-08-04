@@ -64,7 +64,7 @@ abstract class Basket extends Model implements BasketInterface
         $subtotal = 0.00;
 
         foreach ($this->items as $item) {
-            $subtotal += ($item->quantity * $item->basketable->getPrice());
+            $subtotal += $item->getPrice();
         }
 
         return $subtotal;
